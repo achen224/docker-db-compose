@@ -1,0 +1,38 @@
+version: "3.0"
+services:
+
+  mysql:
+    image: "mysql:8"
+    restart: always
+    container_name: docker-db-mysql
+    ports:
+      - "3306:3306"
+    networks: 
+      - docker-db-compose-network
+    environment:
+        - MYSQL_ROOT_PASSWORD=123456
+
+  redis:
+    image: "redis:6"
+    restart: always
+    container_name: docker-db-redis
+    ports:
+      - "6379:6379"
+    networks: 
+      - docker-db-compose-network
+
+  phpmyadmin:
+    image: "phpmyadmin:5"
+    restart: always
+    environment:
+        - PMA_ARBITRARY=1
+        - UPLOAD_LIMIT=10M
+    ports:
+      - "8080:80"
+    networks: 
+      - docker-db-compose-network
+
+networks:
+  docker-db-compose-network:
+    external: true
+      
