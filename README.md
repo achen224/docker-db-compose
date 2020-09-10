@@ -36,3 +36,8 @@ docker-compose up
 
 3. 瀏覽器開啟 http://localhost:8080/ 登入 phpMyAdmin
 
+| 欄位 | 值 |
+| - | - |
+| Server | docker-db-mysql |
+| Username | root |
+| Password | 123456 |
