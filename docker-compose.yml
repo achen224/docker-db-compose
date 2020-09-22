@@ -3,6 +3,10 @@ services:
 
   mysql:
     image: "mysql:8"
+    volumes:
+        - ./conf/my.cnf:/etc/my.cnf
+        - ./conf/mysql:/etc/mysql
+        - ./data:/var/lib/mysql
     restart: always
     container_name: docker-db-mysql
     ports:
